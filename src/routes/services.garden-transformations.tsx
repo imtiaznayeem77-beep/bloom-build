@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ServicePageTemplate } from "@/components/site/ServicePageTemplate";
-import hero from "@/assets/hero-garden.jpg";
+import hero from "@/assets/garden-transformations.jpg";
 
 export const Route = createFileRoute("/services/garden-transformations")({
   component: Page,
