@@ -42,7 +42,7 @@ function Home() {
   return (
     <>
       {/* HERO */}
-      <section className="relative min-h-[100svh] flex items-end overflow-hidden">
+      <section className="relative min-h-[100svh] flex items-center justify-center overflow-hidden">
         <img
           src={heroImg}
           alt="Beautifully maintained luxury garden in Kent at golden hour"
