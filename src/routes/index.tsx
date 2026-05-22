@@ -51,75 +51,83 @@ function Home() {
           height={1280}
           fetchPriority="high"
         />
-        <div className="absolute inset-0 bg-[oklch(0.14_0.012_150)]/35 md:bg-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[oklch(0.12_0.012_150)] via-[oklch(0.14_0.012_150)]/85 to-[oklch(0.14_0.012_150)]/45 md:from-[oklch(0.14_0.012_150)] md:via-[oklch(0.14_0.012_150)]/60 md:to-[oklch(0.14_0.012_150)]/15" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[oklch(0.14_0.012_150)]/80 via-[oklch(0.14_0.012_150)]/30 to-transparent" />
+        {/* Cinematic vignette */}
+        <div className="absolute inset-0 bg-[oklch(0.14_0.012_150)]/55" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[oklch(0.12_0.012_150)]/75 via-[oklch(0.14_0.012_150)]/30 to-[oklch(0.12_0.012_150)]/90" />
+        <div
+          className="absolute inset-0 opacity-70"
+          style={{
+            background:
+              "radial-gradient(60% 70% at 50% 45%, transparent, oklch(0.10 0.012 150 / 0.65) 100%)",
+          }}
+        />
 
-        {/* Floating rating card */}
-        <div className="hidden lg:flex absolute top-32 right-10 z-10 reveal reveal-4">
-          <div className="glass rounded-2xl border border-white/20 px-5 py-4 text-white shadow-elev backdrop-blur-md">
-            <div className="flex items-center gap-1 text-[#FBBC04]">
-              {Array.from({ length: 5 }).map((_, i) => (
-                <Star key={i} className="h-4 w-4 fill-current" />
-              ))}
-            </div>
-            <p className="mt-1 text-xs uppercase tracking-[0.18em] text-white/80">5.0 · Loved locally</p>
-            <p className="font-display text-sm mt-0.5">Trusted gardener in Deal</p>
-          </div>
-        </div>
-
-        <div className="relative container-px mx-auto max-w-7xl pb-20 md:pb-28 pt-40 text-white">
-          <p className="reveal text-xs md:text-sm font-medium uppercase tracking-[0.28em] text-white/80 mb-5">
+        <div className="relative container-px mx-auto max-w-5xl text-center text-white pt-32 pb-44 md:pb-56 flex flex-col items-center min-h-[100svh] justify-center">
+          <p className="reveal inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 backdrop-blur-md px-4 py-1.5 text-[11px] md:text-xs font-medium uppercase tracking-[0.28em] text-white/85 mb-7">
+            <span className="h-1.5 w-1.5 rounded-full bg-[oklch(0.78_0.09_120)]" />
             Deal · Kent &amp; Surrounding Areas
           </p>
-          <h1 className="reveal reveal-2 text-4xl sm:text-5xl md:text-7xl font-display font-semibold text-balance leading-[1.02] max-w-4xl">
-            Premium Garden Maintenance,<br className="hidden md:block" />
-            <span className="italic text-[oklch(0.85_0.09_120)]">Crafted in Kent.</span>
+
+          <h1 className="reveal reveal-2 text-5xl sm:text-6xl md:text-8xl font-display font-semibold text-balance leading-[1.0] tracking-tight">
+            Gardens, crafted with{" "}
+            <span className="italic font-normal text-[oklch(0.85_0.09_120)]">care.</span>
           </h1>
-          <p className="reveal reveal-3 mt-6 text-base md:text-xl text-white/85 max-w-2xl leading-relaxed">
+
+          <p className="reveal reveal-3 mx-auto mt-7 max-w-2xl text-base md:text-lg text-white/80 leading-relaxed">
             Friendly, reliable and beautifully finished garden care for homes,
             estates and commercial properties across Deal, Kent and the surrounding
             coast and countryside.
           </p>
 
-          <ul className="reveal reveal-3 mt-7 flex flex-wrap gap-x-5 gap-y-2 text-sm text-white/85">
-            {["Fully insured", "Domestic & Commercial", "5★ rated locally", "Free quotes"].map((t) => (
-              <li key={t} className="inline-flex items-center gap-2">
-                <span className="h-1.5 w-1.5 rounded-full bg-[oklch(0.78_0.09_120)]" /> {t}
-              </li>
-            ))}
-          </ul>
-
-          <div className="reveal reveal-4 mt-9 flex flex-wrap gap-3">
+          <div className="reveal reveal-4 mt-10 flex flex-wrap justify-center gap-3">
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 rounded-full bg-white text-primary px-7 py-3.5 text-sm font-semibold hover:bg-white/90 transition shadow-elev"
+              className="group inline-flex items-center gap-2 rounded-full bg-[oklch(0.78_0.09_120)] text-[oklch(0.18_0.04_150)] px-8 py-4 text-sm font-semibold hover:bg-[oklch(0.82_0.10_120)] transition-all shadow-elev hover:-translate-y-0.5"
             >
-              Get a Free Quote <ArrowRight className="h-4 w-4" />
+              Get a Free Quote
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
             <a
               href={BUSINESS.whatsappHref}
-              target="_blank" rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-[#25D366] text-white px-7 py-3.5 text-sm font-semibold hover:bg-[#1ebe57] transition"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/5 backdrop-blur-md text-white px-8 py-4 text-sm font-semibold hover:bg-white/15 transition-all"
             >
               <MessageCircle className="h-4 w-4" /> WhatsApp Us
             </a>
-            <a
-              href={BUSINESS.phoneHref}
-              className="inline-flex items-center gap-2 rounded-full border border-white/30 text-white px-7 py-3.5 text-sm font-semibold hover:bg-white/10 transition"
-            >
-              <Phone className="h-4 w-4" /> {BUSINESS.phone}
-            </a>
+          </div>
+
+          <div className="reveal reveal-4 mt-8 flex items-center justify-center gap-2.5 text-xs md:text-sm text-white/75">
+            <div className="flex items-center gap-0.5 text-[#FBBC04]">
+              {Array.from({ length: 5 }).map((_, i) => (
+                <Star key={i} className="h-3.5 w-3.5 fill-current" />
+              ))}
+            </div>
+            <span className="tracking-wide">5.0 · Trusted by 500+ gardens across Kent</span>
           </div>
         </div>
 
-        {/* Scroll indicator */}
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 hidden md:block">
-          <div className="h-10 w-6 rounded-full border border-white/40 flex justify-center p-1">
-            <span className="h-2 w-1 bg-white/70 rounded-full animate-bounce" />
+        {/* Floating stats bar */}
+        <div className="absolute left-1/2 -translate-x-1/2 bottom-0 translate-y-1/2 z-20 w-[calc(100%-2rem)] max-w-5xl px-4">
+          <div className="rounded-2xl md:rounded-full bg-white/95 backdrop-blur-xl border border-black/5 shadow-elev grid grid-cols-2 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-black/5">
+            {[
+              { v: "500+", l: "Gardens cared for" },
+              { v: "10+", l: "Years' experience" },
+              { v: "5.0★", l: "Average review" },
+              { v: "100%", l: "Locally owned" },
+            ].map((s) => (
+              <div key={s.l} className="px-6 py-5 text-center">
+                <p className="font-display text-2xl md:text-3xl text-primary tracking-tight">{s.v}</p>
+                <p className="mt-1 text-[10px] md:text-xs uppercase tracking-[0.18em] text-muted-foreground">
+                  {s.l}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
+
+      <div className="h-24 md:h-20" />
 
       <TrustStrip />
 
