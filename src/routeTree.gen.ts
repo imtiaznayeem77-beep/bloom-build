@@ -9,13 +9,47 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ServicesRouteImport } from './routes/services'
+import { Route as ReviewsRouteImport } from './routes/reviews'
+import { Route as ProjectsRouteImport } from './routes/projects'
+import { Route as GalleryRouteImport } from './routes/gallery'
+import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ServicesLawnCareRouteImport } from './routes/services.lawn-care'
+import { Route as ServicesGardenTransformationsRouteImport } from './routes/services.garden-transformations'
+import { Route as ServicesGardenMaintenanceRouteImport } from './routes/services.garden-maintenance'
+import { Route as ServicesCommercialGroundsMaintenanceRouteImport } from './routes/services.commercial-grounds-maintenance'
 
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ServicesRoute = ServicesRouteImport.update({
   id: '/services',
   path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReviewsRoute = ReviewsRouteImport.update({
+  id: '/reviews',
+  path: '/reviews',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProjectsRoute = ProjectsRouteImport.update({
+  id: '/projects',
+  path: '/projects',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GalleryRoute = GalleryRouteImport.update({
+  id: '/gallery',
+  path: '/gallery',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AboutRoute = AboutRouteImport.update({
@@ -28,44 +62,171 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ServicesLawnCareRoute = ServicesLawnCareRouteImport.update({
+  id: '/lawn-care',
+  path: '/lawn-care',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const ServicesGardenTransformationsRoute =
+  ServicesGardenTransformationsRouteImport.update({
+    id: '/garden-transformations',
+    path: '/garden-transformations',
+    getParentRoute: () => ServicesRoute,
+  } as any)
+const ServicesGardenMaintenanceRoute =
+  ServicesGardenMaintenanceRouteImport.update({
+    id: '/garden-maintenance',
+    path: '/garden-maintenance',
+    getParentRoute: () => ServicesRoute,
+  } as any)
+const ServicesCommercialGroundsMaintenanceRoute =
+  ServicesCommercialGroundsMaintenanceRouteImport.update({
+    id: '/commercial-grounds-maintenance',
+    path: '/commercial-grounds-maintenance',
+    getParentRoute: () => ServicesRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/services': typeof ServicesRoute
+  '/contact': typeof ContactRoute
+  '/gallery': typeof GalleryRoute
+  '/projects': typeof ProjectsRoute
+  '/reviews': typeof ReviewsRoute
+  '/services': typeof ServicesRouteWithChildren
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/services/commercial-grounds-maintenance': typeof ServicesCommercialGroundsMaintenanceRoute
+  '/services/garden-maintenance': typeof ServicesGardenMaintenanceRoute
+  '/services/garden-transformations': typeof ServicesGardenTransformationsRoute
+  '/services/lawn-care': typeof ServicesLawnCareRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/services': typeof ServicesRoute
+  '/contact': typeof ContactRoute
+  '/gallery': typeof GalleryRoute
+  '/projects': typeof ProjectsRoute
+  '/reviews': typeof ReviewsRoute
+  '/services': typeof ServicesRouteWithChildren
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/services/commercial-grounds-maintenance': typeof ServicesCommercialGroundsMaintenanceRoute
+  '/services/garden-maintenance': typeof ServicesGardenMaintenanceRoute
+  '/services/garden-transformations': typeof ServicesGardenTransformationsRoute
+  '/services/lawn-care': typeof ServicesLawnCareRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/services': typeof ServicesRoute
+  '/contact': typeof ContactRoute
+  '/gallery': typeof GalleryRoute
+  '/projects': typeof ProjectsRoute
+  '/reviews': typeof ReviewsRoute
+  '/services': typeof ServicesRouteWithChildren
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/services/commercial-grounds-maintenance': typeof ServicesCommercialGroundsMaintenanceRoute
+  '/services/garden-maintenance': typeof ServicesGardenMaintenanceRoute
+  '/services/garden-transformations': typeof ServicesGardenTransformationsRoute
+  '/services/lawn-care': typeof ServicesLawnCareRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/services'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/gallery'
+    | '/projects'
+    | '/reviews'
+    | '/services'
+    | '/sitemap.xml'
+    | '/services/commercial-grounds-maintenance'
+    | '/services/garden-maintenance'
+    | '/services/garden-transformations'
+    | '/services/lawn-care'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/services'
-  id: '__root__' | '/' | '/about' | '/services'
+  to:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/gallery'
+    | '/projects'
+    | '/reviews'
+    | '/services'
+    | '/sitemap.xml'
+    | '/services/commercial-grounds-maintenance'
+    | '/services/garden-maintenance'
+    | '/services/garden-transformations'
+    | '/services/lawn-care'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/gallery'
+    | '/projects'
+    | '/reviews'
+    | '/services'
+    | '/sitemap.xml'
+    | '/services/commercial-grounds-maintenance'
+    | '/services/garden-maintenance'
+    | '/services/garden-transformations'
+    | '/services/lawn-care'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
-  ServicesRoute: typeof ServicesRoute
+  ContactRoute: typeof ContactRoute
+  GalleryRoute: typeof GalleryRoute
+  ProjectsRoute: typeof ProjectsRoute
+  ReviewsRoute: typeof ReviewsRoute
+  ServicesRoute: typeof ServicesRouteWithChildren
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/services': {
       id: '/services'
       path: '/services'
       fullPath: '/services'
       preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reviews': {
+      id: '/reviews'
+      path: '/reviews'
+      fullPath: '/reviews'
+      preLoaderRoute: typeof ReviewsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/projects': {
+      id: '/projects'
+      path: '/projects'
+      fullPath: '/projects'
+      preLoaderRoute: typeof ProjectsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/gallery': {
+      id: '/gallery'
+      path: '/gallery'
+      fullPath: '/gallery'
+      preLoaderRoute: typeof GalleryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/about': {
@@ -82,13 +243,65 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/services/lawn-care': {
+      id: '/services/lawn-care'
+      path: '/lawn-care'
+      fullPath: '/services/lawn-care'
+      preLoaderRoute: typeof ServicesLawnCareRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/garden-transformations': {
+      id: '/services/garden-transformations'
+      path: '/garden-transformations'
+      fullPath: '/services/garden-transformations'
+      preLoaderRoute: typeof ServicesGardenTransformationsRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/garden-maintenance': {
+      id: '/services/garden-maintenance'
+      path: '/garden-maintenance'
+      fullPath: '/services/garden-maintenance'
+      preLoaderRoute: typeof ServicesGardenMaintenanceRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/commercial-grounds-maintenance': {
+      id: '/services/commercial-grounds-maintenance'
+      path: '/commercial-grounds-maintenance'
+      fullPath: '/services/commercial-grounds-maintenance'
+      preLoaderRoute: typeof ServicesCommercialGroundsMaintenanceRouteImport
+      parentRoute: typeof ServicesRoute
+    }
   }
 }
+
+interface ServicesRouteChildren {
+  ServicesCommercialGroundsMaintenanceRoute: typeof ServicesCommercialGroundsMaintenanceRoute
+  ServicesGardenMaintenanceRoute: typeof ServicesGardenMaintenanceRoute
+  ServicesGardenTransformationsRoute: typeof ServicesGardenTransformationsRoute
+  ServicesLawnCareRoute: typeof ServicesLawnCareRoute
+}
+
+const ServicesRouteChildren: ServicesRouteChildren = {
+  ServicesCommercialGroundsMaintenanceRoute:
+    ServicesCommercialGroundsMaintenanceRoute,
+  ServicesGardenMaintenanceRoute: ServicesGardenMaintenanceRoute,
+  ServicesGardenTransformationsRoute: ServicesGardenTransformationsRoute,
+  ServicesLawnCareRoute: ServicesLawnCareRoute,
+}
+
+const ServicesRouteWithChildren = ServicesRoute._addFileChildren(
+  ServicesRouteChildren,
+)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
-  ServicesRoute: ServicesRoute,
+  ContactRoute: ContactRoute,
+  GalleryRoute: GalleryRoute,
+  ProjectsRoute: ProjectsRoute,
+  ReviewsRoute: ReviewsRoute,
+  ServicesRoute: ServicesRouteWithChildren,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
