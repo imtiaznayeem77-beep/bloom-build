@@ -17,9 +17,14 @@ import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ServicesSeasonalTidyRouteImport } from './routes/services.seasonal-tidy'
 import { Route as ServicesLawnCareRouteImport } from './routes/services.lawn-care'
+import { Route as ServicesHolidayLetRouteImport } from './routes/services.holiday-let'
+import { Route as ServicesHedgeTrimmingRouteImport } from './routes/services.hedge-trimming'
 import { Route as ServicesGardenTransformationsRouteImport } from './routes/services.garden-transformations'
 import { Route as ServicesGardenMaintenanceRouteImport } from './routes/services.garden-maintenance'
+import { Route as ServicesGardenClearancesRouteImport } from './routes/services.garden-clearances'
+import { Route as ServicesEstateMaintenanceRouteImport } from './routes/services.estate-maintenance'
 import { Route as ServicesCommercialGroundsMaintenanceRouteImport } from './routes/services.commercial-grounds-maintenance'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
@@ -62,9 +67,24 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ServicesSeasonalTidyRoute = ServicesSeasonalTidyRouteImport.update({
+  id: '/seasonal-tidy',
+  path: '/seasonal-tidy',
+  getParentRoute: () => ServicesRoute,
+} as any)
 const ServicesLawnCareRoute = ServicesLawnCareRouteImport.update({
   id: '/lawn-care',
   path: '/lawn-care',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const ServicesHolidayLetRoute = ServicesHolidayLetRouteImport.update({
+  id: '/holiday-let',
+  path: '/holiday-let',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const ServicesHedgeTrimmingRoute = ServicesHedgeTrimmingRouteImport.update({
+  id: '/hedge-trimming',
+  path: '/hedge-trimming',
   getParentRoute: () => ServicesRoute,
 } as any)
 const ServicesGardenTransformationsRoute =
@@ -77,6 +97,18 @@ const ServicesGardenMaintenanceRoute =
   ServicesGardenMaintenanceRouteImport.update({
     id: '/garden-maintenance',
     path: '/garden-maintenance',
+    getParentRoute: () => ServicesRoute,
+  } as any)
+const ServicesGardenClearancesRoute =
+  ServicesGardenClearancesRouteImport.update({
+    id: '/garden-clearances',
+    path: '/garden-clearances',
+    getParentRoute: () => ServicesRoute,
+  } as any)
+const ServicesEstateMaintenanceRoute =
+  ServicesEstateMaintenanceRouteImport.update({
+    id: '/estate-maintenance',
+    path: '/estate-maintenance',
     getParentRoute: () => ServicesRoute,
   } as any)
 const ServicesCommercialGroundsMaintenanceRoute =
@@ -96,9 +128,14 @@ export interface FileRoutesByFullPath {
   '/services': typeof ServicesRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/services/commercial-grounds-maintenance': typeof ServicesCommercialGroundsMaintenanceRoute
+  '/services/estate-maintenance': typeof ServicesEstateMaintenanceRoute
+  '/services/garden-clearances': typeof ServicesGardenClearancesRoute
   '/services/garden-maintenance': typeof ServicesGardenMaintenanceRoute
   '/services/garden-transformations': typeof ServicesGardenTransformationsRoute
+  '/services/hedge-trimming': typeof ServicesHedgeTrimmingRoute
+  '/services/holiday-let': typeof ServicesHolidayLetRoute
   '/services/lawn-care': typeof ServicesLawnCareRoute
+  '/services/seasonal-tidy': typeof ServicesSeasonalTidyRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -110,9 +147,14 @@ export interface FileRoutesByTo {
   '/services': typeof ServicesRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/services/commercial-grounds-maintenance': typeof ServicesCommercialGroundsMaintenanceRoute
+  '/services/estate-maintenance': typeof ServicesEstateMaintenanceRoute
+  '/services/garden-clearances': typeof ServicesGardenClearancesRoute
   '/services/garden-maintenance': typeof ServicesGardenMaintenanceRoute
   '/services/garden-transformations': typeof ServicesGardenTransformationsRoute
+  '/services/hedge-trimming': typeof ServicesHedgeTrimmingRoute
+  '/services/holiday-let': typeof ServicesHolidayLetRoute
   '/services/lawn-care': typeof ServicesLawnCareRoute
+  '/services/seasonal-tidy': typeof ServicesSeasonalTidyRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -125,9 +167,14 @@ export interface FileRoutesById {
   '/services': typeof ServicesRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/services/commercial-grounds-maintenance': typeof ServicesCommercialGroundsMaintenanceRoute
+  '/services/estate-maintenance': typeof ServicesEstateMaintenanceRoute
+  '/services/garden-clearances': typeof ServicesGardenClearancesRoute
   '/services/garden-maintenance': typeof ServicesGardenMaintenanceRoute
   '/services/garden-transformations': typeof ServicesGardenTransformationsRoute
+  '/services/hedge-trimming': typeof ServicesHedgeTrimmingRoute
+  '/services/holiday-let': typeof ServicesHolidayLetRoute
   '/services/lawn-care': typeof ServicesLawnCareRoute
+  '/services/seasonal-tidy': typeof ServicesSeasonalTidyRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -141,9 +188,14 @@ export interface FileRouteTypes {
     | '/services'
     | '/sitemap.xml'
     | '/services/commercial-grounds-maintenance'
+    | '/services/estate-maintenance'
+    | '/services/garden-clearances'
     | '/services/garden-maintenance'
     | '/services/garden-transformations'
+    | '/services/hedge-trimming'
+    | '/services/holiday-let'
     | '/services/lawn-care'
+    | '/services/seasonal-tidy'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -155,9 +207,14 @@ export interface FileRouteTypes {
     | '/services'
     | '/sitemap.xml'
     | '/services/commercial-grounds-maintenance'
+    | '/services/estate-maintenance'
+    | '/services/garden-clearances'
     | '/services/garden-maintenance'
     | '/services/garden-transformations'
+    | '/services/hedge-trimming'
+    | '/services/holiday-let'
     | '/services/lawn-care'
+    | '/services/seasonal-tidy'
   id:
     | '__root__'
     | '/'
@@ -169,9 +226,14 @@ export interface FileRouteTypes {
     | '/services'
     | '/sitemap.xml'
     | '/services/commercial-grounds-maintenance'
+    | '/services/estate-maintenance'
+    | '/services/garden-clearances'
     | '/services/garden-maintenance'
     | '/services/garden-transformations'
+    | '/services/hedge-trimming'
+    | '/services/holiday-let'
     | '/services/lawn-care'
+    | '/services/seasonal-tidy'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -243,11 +305,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/services/seasonal-tidy': {
+      id: '/services/seasonal-tidy'
+      path: '/seasonal-tidy'
+      fullPath: '/services/seasonal-tidy'
+      preLoaderRoute: typeof ServicesSeasonalTidyRouteImport
+      parentRoute: typeof ServicesRoute
+    }
     '/services/lawn-care': {
       id: '/services/lawn-care'
       path: '/lawn-care'
       fullPath: '/services/lawn-care'
       preLoaderRoute: typeof ServicesLawnCareRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/holiday-let': {
+      id: '/services/holiday-let'
+      path: '/holiday-let'
+      fullPath: '/services/holiday-let'
+      preLoaderRoute: typeof ServicesHolidayLetRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/hedge-trimming': {
+      id: '/services/hedge-trimming'
+      path: '/hedge-trimming'
+      fullPath: '/services/hedge-trimming'
+      preLoaderRoute: typeof ServicesHedgeTrimmingRouteImport
       parentRoute: typeof ServicesRoute
     }
     '/services/garden-transformations': {
@@ -264,6 +347,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesGardenMaintenanceRouteImport
       parentRoute: typeof ServicesRoute
     }
+    '/services/garden-clearances': {
+      id: '/services/garden-clearances'
+      path: '/garden-clearances'
+      fullPath: '/services/garden-clearances'
+      preLoaderRoute: typeof ServicesGardenClearancesRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/estate-maintenance': {
+      id: '/services/estate-maintenance'
+      path: '/estate-maintenance'
+      fullPath: '/services/estate-maintenance'
+      preLoaderRoute: typeof ServicesEstateMaintenanceRouteImport
+      parentRoute: typeof ServicesRoute
+    }
     '/services/commercial-grounds-maintenance': {
       id: '/services/commercial-grounds-maintenance'
       path: '/commercial-grounds-maintenance'
@@ -276,17 +373,27 @@ declare module '@tanstack/react-router' {
 
 interface ServicesRouteChildren {
   ServicesCommercialGroundsMaintenanceRoute: typeof ServicesCommercialGroundsMaintenanceRoute
+  ServicesEstateMaintenanceRoute: typeof ServicesEstateMaintenanceRoute
+  ServicesGardenClearancesRoute: typeof ServicesGardenClearancesRoute
   ServicesGardenMaintenanceRoute: typeof ServicesGardenMaintenanceRoute
   ServicesGardenTransformationsRoute: typeof ServicesGardenTransformationsRoute
+  ServicesHedgeTrimmingRoute: typeof ServicesHedgeTrimmingRoute
+  ServicesHolidayLetRoute: typeof ServicesHolidayLetRoute
   ServicesLawnCareRoute: typeof ServicesLawnCareRoute
+  ServicesSeasonalTidyRoute: typeof ServicesSeasonalTidyRoute
 }
 
 const ServicesRouteChildren: ServicesRouteChildren = {
   ServicesCommercialGroundsMaintenanceRoute:
     ServicesCommercialGroundsMaintenanceRoute,
+  ServicesEstateMaintenanceRoute: ServicesEstateMaintenanceRoute,
+  ServicesGardenClearancesRoute: ServicesGardenClearancesRoute,
   ServicesGardenMaintenanceRoute: ServicesGardenMaintenanceRoute,
   ServicesGardenTransformationsRoute: ServicesGardenTransformationsRoute,
+  ServicesHedgeTrimmingRoute: ServicesHedgeTrimmingRoute,
+  ServicesHolidayLetRoute: ServicesHolidayLetRoute,
   ServicesLawnCareRoute: ServicesLawnCareRoute,
+  ServicesSeasonalTidyRoute: ServicesSeasonalTidyRoute,
 }
 
 const ServicesRouteWithChildren = ServicesRoute._addFileChildren(
@@ -306,3 +413,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
