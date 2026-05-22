@@ -148,7 +148,7 @@ function Home() {
         </div>
       </Section>
 
-      <StatsSection />
+
 
       <WhyChooseUs />
 
