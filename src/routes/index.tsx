@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, MessageCircle, Star, Phone } from "lucide-react";
+import { ArrowRight, MessageCircle, Star } from "lucide-react";
 import heroImg from "@/assets/hero-garden-dark.jpg";
 import lawnImg from "@/assets/lawn-care.jpg";
 import { BUSINESS } from "@/lib/business";
