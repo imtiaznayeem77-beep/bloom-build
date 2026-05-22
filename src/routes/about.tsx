@@ -28,12 +28,12 @@ export const Route = createFileRoute("/about")({
 });
 
 const values = [
-  { icon: Smile, t: "Friendly", d: "Approachable, honest service — no pushy sales talk, ever." },
-  { icon: ShieldCheck, t: "Reliable", d: "Show up when we say we will. Do the job properly." },
-  { icon: Wrench, t: "Professional", d: "Premium kit, premium finish, premium standards." },
-  { icon: Leaf, t: "Detail-oriented", d: "Clean edges, neat lines, the small things that matter." },
-  { icon: Heart, t: "Local", d: "Born and based in Deal — proud to look after Kent gardens." },
-  { icon: ArrowRight, t: "Domestic & commercial", d: "From cottage borders to country estates." },
+  { icon: Smile, t: "Friendly", d: "Approachable, honest service — no pushy sales talk, ever.", bg: "bg-amber-100", fg: "text-amber-700" },
+  { icon: ShieldCheck, t: "Reliable", d: "Show up when we say we will. Do the job properly.", bg: "bg-blue-100", fg: "text-blue-700" },
+  { icon: Wrench, t: "Professional", d: "Premium kit, premium finish, premium standards.", bg: "bg-slate-200", fg: "text-slate-700" },
+  { icon: Leaf, t: "Detail-oriented", d: "Clean edges, neat lines, the small things that matter.", bg: "bg-emerald-100", fg: "text-emerald-700" },
+  { icon: Heart, t: "Local", d: "Born and based in Deal — proud to look after Kent gardens.", bg: "bg-rose-100", fg: "text-rose-700" },
+  { icon: ArrowRight, t: "Domestic & commercial", d: "From cottage borders to country estates.", bg: "bg-orange-100", fg: "text-orange-700" },
 ];
 
 function AboutPage() {
@@ -105,9 +105,9 @@ function AboutPage() {
         center
       >
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {values.map(({ icon: Icon, t, d }) => (
+          {values.map(({ icon: Icon, t, d, bg, fg }) => (
             <div key={t} className="rounded-2xl bg-card border border-border p-7 hover:shadow-elev transition-shadow">
-              <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-primary/8 text-primary">
+              <span className={`inline-flex h-11 w-11 items-center justify-center rounded-xl ${bg} ${fg}`}>
                 <Icon className="h-5 w-5" />
               </span>
               <h3 className="mt-5 font-display text-lg">{t}</h3>

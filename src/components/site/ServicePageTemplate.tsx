@@ -53,8 +53,9 @@ export function ServicePageTemplate(p: ServicePageProps) {
           height={1100}
           fetchPriority="high"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[oklch(0.16_0.012_150)] via-[oklch(0.16_0.012_150)]/55 to-[oklch(0.16_0.012_150)]/10" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[oklch(0.16_0.012_150)]/70 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-[oklch(0.14_0.012_150)]/40 md:bg-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[oklch(0.12_0.012_150)] via-[oklch(0.14_0.012_150)]/85 to-[oklch(0.14_0.012_150)]/45 md:from-[oklch(0.14_0.012_150)] md:via-[oklch(0.14_0.012_150)]/60 md:to-[oklch(0.14_0.012_150)]/15" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[oklch(0.14_0.012_150)]/75 via-[oklch(0.14_0.012_150)]/25 to-transparent" />
         <div className="relative container-px mx-auto max-w-7xl pt-40 pb-20 md:pb-28 text-white">
           <p className="reveal text-xs md:text-sm font-medium uppercase tracking-[0.28em] text-white/80 mb-4">
             {p.eyebrow}
