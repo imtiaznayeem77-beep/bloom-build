@@ -22,10 +22,10 @@ export function Header() {
 
   return (
     <header
-      className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 glass border-b ${
         scrolled
-          ? "glass border-b border-border/60 py-2"
-          : "bg-transparent py-4"
+          ? "border-border/70 py-2 shadow-soft"
+          : "border-white/10 py-3"
       }`}
     >
       <div className="container-px mx-auto max-w-7xl flex items-center justify-between gap-4">
