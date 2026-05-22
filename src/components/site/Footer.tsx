@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Instagram, Facebook, Phone, Mail, MessageCircle, MapPin } from "lucide-react";
 import { BUSINESS, NAV } from "@/lib/business";
-import logo from "../../../public/logo/logo.jpg";
+const logo = "/logo/logo.jpg";
 
 export function Footer() {
   return (

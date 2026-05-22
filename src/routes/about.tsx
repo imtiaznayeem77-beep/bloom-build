@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Heart, Leaf, ShieldCheck, Smile, Wrench } from "lucide-react";
 import { PageHero, Section } from "@/components/site/Section";
 import { CTASection } from "@/components/site/CTASection";
-import logo from "../../public/logo/logo.jpg";
+const logo = "/logo/logo.jpg";
 
 export const Route = createFileRoute("/about")({
   component: AboutPage,
