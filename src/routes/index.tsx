@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, MessageCircle, Star, Phone } from "lucide-react";
-import heroImg from "@/assets/hero-garden.jpg";
+import heroImg from "@/assets/hero-garden-dark.jpg";
 import lawnImg from "@/assets/lawn-care.jpg";
 import { BUSINESS } from "@/lib/business";
 import { ServicesGrid } from "@/components/site/ServicesGrid";
@@ -51,8 +51,9 @@ function Home() {
           height={1280}
           fetchPriority="high"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[oklch(0.16_0.012_150)] via-[oklch(0.16_0.012_150)]/55 to-[oklch(0.16_0.012_150)]/10" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[oklch(0.16_0.012_150)]/75 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-[oklch(0.14_0.012_150)]/35 md:bg-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[oklch(0.12_0.012_150)] via-[oklch(0.14_0.012_150)]/85 to-[oklch(0.14_0.012_150)]/45 md:from-[oklch(0.14_0.012_150)] md:via-[oklch(0.14_0.012_150)]/60 md:to-[oklch(0.14_0.012_150)]/15" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[oklch(0.14_0.012_150)]/80 via-[oklch(0.14_0.012_150)]/30 to-transparent" />
 
         {/* Floating rating card */}
         <div className="hidden lg:flex absolute top-32 right-10 z-10 reveal reveal-4">

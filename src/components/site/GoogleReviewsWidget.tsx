@@ -131,6 +131,17 @@ function Stars({ n }: { n: number }) {
   );
 }
 
+const AVATAR_COLORS = [
+  "bg-amber-100 text-amber-800",
+  "bg-blue-100 text-blue-800",
+  "bg-rose-100 text-rose-800",
+  "bg-violet-100 text-violet-800",
+  "bg-orange-100 text-orange-800",
+  "bg-teal-100 text-teal-800",
+  "bg-fuchsia-100 text-fuchsia-800",
+  "bg-sky-100 text-sky-800",
+];
+
 function Avatar({ name }: { name: string }) {
   const initials = name
     .split(" ")
@@ -138,8 +149,10 @@ function Avatar({ name }: { name: string }) {
     .join("")
     .slice(0, 2)
     .toUpperCase();
+  const hash = Array.from(name).reduce((a, c) => a + c.charCodeAt(0), 0);
+  const cls = AVATAR_COLORS[hash % AVATAR_COLORS.length];
   return (
-    <div className="h-10 w-10 rounded-full bg-primary/10 text-primary inline-flex items-center justify-center font-display text-sm">
+    <div className={`h-10 w-10 rounded-full inline-flex items-center justify-center font-display text-sm ${cls}`}>
       {initials}
     </div>
   );
