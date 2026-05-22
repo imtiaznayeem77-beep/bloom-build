@@ -10,7 +10,7 @@ import { BeforeAfter } from "@/components/site/BeforeAfter";
 import { CTASection } from "@/components/site/CTASection";
 import { Reveal } from "@/components/site/Reveal";
 import { projects } from "@/lib/projects";
-import { StatsSection } from "@/components/site/StatsSection";
+
 import { WhyChooseUs } from "@/components/site/WhyChooseUs";
 import { ProcessSection } from "@/components/site/ProcessSection";
 import { AreasWeCover } from "@/components/site/AreasWeCover";
