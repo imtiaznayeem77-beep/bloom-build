@@ -48,10 +48,12 @@
   /* Brand palette
      #1f3b2d deep forest, #7da27e sage, #a5b46b warm olive,
      #1d1d1d charcoal, #f7f7f5 off-white, #f2f3ef bg grey */
-  --background: oklch(0.969 0.003 130);
+  --background: oklch(0.955 0.018 145);
   --foreground: oklch(0.18 0.015 150);
+  --surface-tint: oklch(0.93 0.028 145);
+  --surface-deep: oklch(0.9 0.04 145);
 
-  --card: oklch(0.985 0.003 130);
+  --card: oklch(0.985 0.006 140);
   --card-foreground: oklch(0.18 0.015 150);
 
   --popover: oklch(0.985 0.003 130);
@@ -63,8 +65,8 @@
   --secondary: oklch(0.93 0.012 140);
   --secondary-foreground: oklch(0.22 0.04 150);
 
-  --muted: oklch(0.94 0.008 130);
-  --muted-foreground: oklch(0.45 0.015 150);
+  --muted: oklch(0.92 0.022 145);
+  --muted-foreground: oklch(0.42 0.022 150);
 
   --accent: oklch(0.78 0.09 120);              /* olive #a5b46b */
   --accent-foreground: oklch(0.2 0.03 150);
@@ -76,8 +78,8 @@
   --destructive: oklch(0.55 0.2 25);
   --destructive-foreground: oklch(0.985 0.003 130);
 
-  --border: oklch(0.88 0.008 140);
-  --input: oklch(0.9 0.008 140);
+  --border: oklch(0.85 0.022 145);
+  --input: oklch(0.88 0.02 145);
   --ring: oklch(0.55 0.06 145);
 }
 
@@ -106,6 +108,10 @@
   html { scroll-behavior: smooth; }
   body {
     background-color: var(--color-background);
+    background-image:
+      radial-gradient(1200px 700px at 100% -10%, oklch(0.78 0.09 130 / 0.18), transparent 60%),
+      radial-gradient(900px 600px at -10% 110%, oklch(0.45 0.08 150 / 0.14), transparent 60%);
+    background-attachment: fixed;
     color: var(--color-foreground);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
