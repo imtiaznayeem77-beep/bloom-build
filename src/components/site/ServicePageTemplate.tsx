@@ -46,7 +46,7 @@ export function ServicePageTemplate(p: ServicePageProps) {
           <div className="relative aspect-[5/4] rounded-3xl overflow-hidden shadow-elev">
             <img src={p.heroImage} alt={p.title} className="absolute inset-0 h-full w-full object-cover" loading="lazy" />
           </div>
-          <div className="prose prose-neutral max-w-none text-muted-foreground leading-relaxed">
+          <div className="text-muted-foreground leading-relaxed space-y-4 text-base md:text-lg">
             {p.intro}
           </div>
         </div>
