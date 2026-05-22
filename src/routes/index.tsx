@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, MessageCircle, Star, ShieldCheck, Sparkles, Clock } from "lucide-react";
+import { ArrowRight, MessageCircle, Star, Phone } from "lucide-react";
 import heroImg from "@/assets/hero-garden.jpg";
 import lawnImg from "@/assets/lawn-care.jpg";
 import { BUSINESS } from "@/lib/business";
@@ -8,19 +8,26 @@ import { Section } from "@/components/site/Section";
 import { TrustStrip } from "@/components/site/TrustStrip";
 import { BeforeAfter } from "@/components/site/BeforeAfter";
 import { CTASection } from "@/components/site/CTASection";
-import { SocialSection } from "@/components/site/SocialSection";
 import { Reveal } from "@/components/site/Reveal";
 import { projects } from "@/lib/projects";
+import { StatsSection } from "@/components/site/StatsSection";
+import { WhyChooseUs } from "@/components/site/WhyChooseUs";
+import { ProcessSection } from "@/components/site/ProcessSection";
+import { AreasWeCover } from "@/components/site/AreasWeCover";
+import { GoogleReviewsWidget } from "@/components/site/GoogleReviewsWidget";
+import { FacebookReviewsWidget } from "@/components/site/FacebookReviewsWidget";
+import { InstagramFeedWidget } from "@/components/site/InstagramFeedWidget";
+import { FAQ, HOME_FAQS } from "@/components/site/FAQ";
 
 export const Route = createFileRoute("/")({
   component: Home,
   head: () => ({
     meta: [
-      { title: "Sutton's Garden Maintenance | Gardener in Deal, Kent" },
+      { title: "Sutton's Garden Maintenance | Premium Gardener in Deal, Kent" },
       {
         name: "description",
         content:
-          "Premium garden maintenance, lawn care and transformations across Deal, Kent. Friendly, reliable, professional. Free quotes — call 07775 085518.",
+          "Premium garden maintenance, lawn care and full garden transformations across Deal, Kent. Reliable, insured and 5★ rated. Free quotes — call 07775 085518.",
       },
       { property: "og:title", content: "Sutton's Garden Maintenance | Deal, Kent" },
       { property: "og:url", content: "/" },
@@ -39,28 +46,43 @@ function Home() {
         <img
           src={heroImg}
           alt="Beautifully maintained luxury garden in Kent at golden hour"
-          className="absolute inset-0 h-full w-full object-cover"
+          className="absolute inset-0 h-full w-full object-cover scale-105"
           width={1920}
           height={1280}
           fetchPriority="high"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[oklch(0.18_0.015_150)] via-[oklch(0.18_0.015_150)]/55 to-[oklch(0.18_0.015_150)]/15" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[oklch(0.18_0.015_150)]/70 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[oklch(0.16_0.012_150)] via-[oklch(0.16_0.012_150)]/55 to-[oklch(0.16_0.012_150)]/10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[oklch(0.16_0.012_150)]/75 via-transparent to-transparent" />
+
+        {/* Floating rating card */}
+        <div className="hidden lg:flex absolute top-32 right-10 z-10 reveal reveal-4">
+          <div className="glass rounded-2xl border border-white/20 px-5 py-4 text-white shadow-elev backdrop-blur-md">
+            <div className="flex items-center gap-1 text-[#FBBC04]">
+              {Array.from({ length: 5 }).map((_, i) => (
+                <Star key={i} className="h-4 w-4 fill-current" />
+              ))}
+            </div>
+            <p className="mt-1 text-xs uppercase tracking-[0.18em] text-white/80">5.0 · Loved locally</p>
+            <p className="font-display text-sm mt-0.5">Trusted gardener in Deal</p>
+          </div>
+        </div>
 
         <div className="relative container-px mx-auto max-w-7xl pb-20 md:pb-28 pt-40 text-white">
           <p className="reveal text-xs md:text-sm font-medium uppercase tracking-[0.28em] text-white/80 mb-5">
             Deal · Kent &amp; Surrounding Areas
           </p>
           <h1 className="reveal reveal-2 text-4xl sm:text-5xl md:text-7xl font-display font-semibold text-balance leading-[1.02] max-w-4xl">
-            Professional Garden Maintenance Across Deal &amp; Kent
+            Premium Garden Maintenance,<br className="hidden md:block" />
+            <span className="italic text-[oklch(0.85_0.09_120)]">Crafted in Kent.</span>
           </h1>
           <p className="reveal reveal-3 mt-6 text-base md:text-xl text-white/85 max-w-2xl leading-relaxed">
-            Friendly, reliable and professional garden maintenance for domestic and
-            commercial properties across Deal, Kent and surrounding areas.
+            Friendly, reliable and beautifully finished garden care for homes,
+            estates and commercial properties across Deal, Kent and the surrounding
+            coast and countryside.
           </p>
 
           <ul className="reveal reveal-3 mt-7 flex flex-wrap gap-x-5 gap-y-2 text-sm text-white/85">
-            {["Friendly Local Service", "Domestic & Commercial", "Reliable Maintenance", "Free Quotes"].map((t) => (
+            {["Fully insured", "Domestic & Commercial", "5★ rated locally", "Free quotes"].map((t) => (
               <li key={t} className="inline-flex items-center gap-2">
                 <span className="h-1.5 w-1.5 rounded-full bg-[oklch(0.78_0.09_120)]" /> {t}
               </li>
@@ -70,7 +92,7 @@ function Home() {
           <div className="reveal reveal-4 mt-9 flex flex-wrap gap-3">
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 rounded-full bg-white text-primary px-7 py-3.5 text-sm font-semibold hover:bg-white/90 transition"
+              className="inline-flex items-center gap-2 rounded-full bg-white text-primary px-7 py-3.5 text-sm font-semibold hover:bg-white/90 transition shadow-elev"
             >
               Get a Free Quote <ArrowRight className="h-4 w-4" />
             </Link>
@@ -79,44 +101,32 @@ function Home() {
               target="_blank" rel="noreferrer"
               className="inline-flex items-center gap-2 rounded-full bg-[#25D366] text-white px-7 py-3.5 text-sm font-semibold hover:bg-[#1ebe57] transition"
             >
-              <MessageCircle className="h-4 w-4" /> Message on WhatsApp
+              <MessageCircle className="h-4 w-4" /> WhatsApp Us
             </a>
+            <a
+              href={BUSINESS.phoneHref}
+              className="inline-flex items-center gap-2 rounded-full border border-white/30 text-white px-7 py-3.5 text-sm font-semibold hover:bg-white/10 transition"
+            >
+              <Phone className="h-4 w-4" /> {BUSINESS.phone}
+            </a>
+          </div>
+        </div>
+
+        {/* Scroll indicator */}
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 hidden md:block">
+          <div className="h-10 w-6 rounded-full border border-white/40 flex justify-center p-1">
+            <span className="h-2 w-1 bg-white/70 rounded-full animate-bounce" />
           </div>
         </div>
       </section>
 
       <TrustStrip />
 
-      {/* INTRO */}
-      <Section
-        eyebrow="Who we are"
-        title="Premium garden care, with a friendly local touch."
-        subtitle="From weekly maintenance and seasonal tidy-ups to full garden transformations, Sutton's delivers the kind of attention to detail that keeps Kent's finest gardens looking their best."
-      >
-        <div className="grid gap-6 md:grid-cols-3">
-          {[
-            { icon: ShieldCheck, t: "Reliable & insured", d: "Turn up when we say we will, every time." },
-            { icon: Sparkles, t: "Attention to detail", d: "Clean edges, neat finishes, gardens that feel cared-for." },
-            { icon: Clock, t: "Flexible scheduling", d: "One-off jobs, weekly visits or seasonal plans — your call." },
-          ].map(({ icon: Icon, t, d }, i) => (
-            <Reveal key={t} delay={i * 80}>
-              <div className="rounded-2xl bg-card border border-border p-7 h-full">
-                <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-primary/8 text-primary">
-                  <Icon className="h-5 w-5" />
-                </span>
-                <h3 className="mt-5 text-lg font-display">{t}</h3>
-                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{d}</p>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-      </Section>
-
       {/* SERVICES */}
       <Section
         eyebrow="What we do"
-        title="Garden services across Deal & Kent"
-        subtitle="A full range of garden maintenance and transformation services for homes, estates, holiday lets and commercial properties."
+        title="A full range of premium garden services."
+        subtitle="From weekly maintenance and seasonal tidy-ups to full transformations and commercial grounds care — we handle every garden with the same obsessive eye for finish."
       >
         <ServicesGrid />
         <div className="mt-10 text-center">
@@ -129,8 +139,12 @@ function Home() {
         </div>
       </Section>
 
+      <StatsSection />
+
+      <WhyChooseUs />
+
       {/* BEFORE/AFTER */}
-      <section className="py-20 md:py-28 bg-[oklch(0.96_0.005_140)]">
+      <section className="py-20 md:py-28">
         <div className="container-px mx-auto max-w-7xl">
           <div className="max-w-3xl mb-12 md:mb-16">
             <p className="text-xs font-medium uppercase tracking-[0.22em] text-[oklch(0.5_0.08_145)] mb-3">
@@ -169,8 +183,10 @@ function Home() {
         </div>
       </section>
 
+      <ProcessSection />
+
       {/* SPLIT LAWN */}
-      <Section>
+      <Section className="bg-[oklch(0.96_0.005_140)]">
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           <Reveal>
             <div className="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-elev">
@@ -180,11 +196,14 @@ function Home() {
                 className="absolute inset-0 h-full w-full object-cover"
                 loading="lazy"
               />
+              <div className="absolute bottom-5 left-5 rounded-full bg-white/90 backdrop-blur px-4 py-2 text-xs font-medium text-primary shadow-soft">
+                Lawn care specialists
+              </div>
             </div>
           </Reveal>
           <Reveal delay={100}>
             <p className="text-xs font-medium uppercase tracking-[0.22em] text-[oklch(0.5_0.08_145)] mb-3">
-              Lawn care specialists
+              Signature service
             </p>
             <h2 className="text-3xl md:text-5xl font-display text-foreground text-balance">
               A flawless lawn, looked after properly.
@@ -218,7 +237,16 @@ function Home() {
         </div>
       </Section>
 
-      <SocialSection />
+      <AreasWeCover />
+
+      <GoogleReviewsWidget />
+
+      <InstagramFeedWidget />
+
+      <FacebookReviewsWidget />
+
+      <FAQ items={HOME_FAQS} className="bg-[oklch(0.96_0.005_140)]" />
+
       <CTASection />
     </>
   );
