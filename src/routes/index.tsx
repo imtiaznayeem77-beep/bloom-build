@@ -107,9 +107,12 @@ function Home() {
           </div>
         </div>
 
-        {/* Floating stats bar */}
-        <div className="absolute left-1/2 -translate-x-1/2 bottom-0 translate-y-1/2 z-20 w-[calc(100%-2rem)] max-w-5xl px-4">
-          <div className="rounded-2xl md:rounded-full bg-white/95 backdrop-blur-xl border border-black/5 shadow-elev grid grid-cols-2 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-black/5">
+      </section>
+
+      {/* Stats bar — sits cleanly below the hero, overlapping just a touch */}
+      <section className="relative z-20 -mt-12 md:-mt-14 mb-4 md:mb-8">
+        <div className="container-px mx-auto max-w-5xl">
+          <div className="rounded-2xl md:rounded-full bg-white/98 backdrop-blur-xl border border-black/5 shadow-elev grid grid-cols-2 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-black/5">
             {[
               { v: "500+", l: "Gardens cared for" },
               { v: "10+", l: "Years' experience" },
@@ -127,9 +130,8 @@ function Home() {
         </div>
       </section>
 
-      <div className="h-24 md:h-20" />
-
       <TrustStrip />
+
 
       {/* SERVICES */}
       <Section
