@@ -49,13 +49,48 @@ export function PageHero({
   eyebrow,
   title,
   subtitle,
+  image,
   children,
 }: {
   eyebrow?: string;
   title: string;
   subtitle?: string;
+  image?: string;
   children?: ReactNode;
 }) {
+  if (image) {
+    return (
+      <section className="relative min-h-[72svh] flex items-end overflow-hidden">
+        <img
+          src={image}
+          alt=""
+          className="absolute inset-0 h-full w-full object-cover"
+          width={1600}
+          height={900}
+          fetchPriority="high"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-[oklch(0.16_0.012_150)] via-[oklch(0.16_0.012_150)]/55 to-[oklch(0.16_0.012_150)]/10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[oklch(0.16_0.012_150)]/65 via-transparent to-transparent" />
+        <div className="relative container-px mx-auto max-w-7xl pt-40 pb-20 md:pb-24 text-white">
+          {eyebrow && (
+            <p className="reveal text-xs md:text-sm font-medium uppercase tracking-[0.28em] text-white/85 mb-4">
+              {eyebrow}
+            </p>
+          )}
+          <h1 className="reveal reveal-2 text-4xl md:text-6xl font-display font-semibold text-balance leading-[1.05] max-w-4xl">
+            {title}
+          </h1>
+          {subtitle && (
+            <p className="reveal reveal-3 mt-5 text-lg md:text-xl text-white/85 max-w-2xl leading-relaxed">
+              {subtitle}
+            </p>
+          )}
+          {children && <div className="reveal reveal-4 mt-8">{children}</div>}
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section className="relative pt-36 pb-16 md:pt-44 md:pb-24 overflow-hidden bg-grain">
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-[oklch(0.95_0.012_145)] via-background to-background" />

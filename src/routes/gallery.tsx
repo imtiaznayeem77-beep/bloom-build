@@ -4,6 +4,9 @@ import { X } from "lucide-react";
 import { PageHero, Section } from "@/components/site/Section";
 import { CTASection } from "@/components/site/CTASection";
 import { allGalleryImages } from "@/lib/projects";
+import { TrustStrip } from "@/components/site/TrustStrip";
+import { InstagramFeedWidget } from "@/components/site/InstagramFeedWidget";
+import galleryHero from "@/assets/gallery-hero.jpg";
 
 export const Route = createFileRoute("/gallery")({
   component: GalleryPage,
@@ -13,6 +16,7 @@ export const Route = createFileRoute("/gallery")({
       { name: "description", content: "Browse our gallery of recent garden maintenance, lawn care and transformation work across Deal and Kent." },
       { property: "og:title", content: "Garden Gallery — Sutton's" },
       { property: "og:url", content: "/gallery" },
+      { property: "og:image", content: "/projects/p6-1.jpg" },
     ],
     links: [{ rel: "canonical", href: "/gallery" }],
   }),
@@ -35,7 +39,10 @@ function GalleryPage() {
         eyebrow="Gallery"
         title="A look at our recent work."
         subtitle="Real gardens, real results — across Deal, Kent and the surrounding villages."
+        image={galleryHero}
       />
+
+      <TrustStrip />
 
       <Section>
         <div className="flex flex-wrap gap-2 mb-8">
@@ -87,6 +94,8 @@ function GalleryPage() {
           <img src={lightbox} alt="" className="max-w-full max-h-full rounded-xl shadow-elev" />
         </div>
       )}
+
+      <InstagramFeedWidget />
 
       <CTASection />
     </>

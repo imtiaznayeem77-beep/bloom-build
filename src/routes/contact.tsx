@@ -4,7 +4,11 @@ import { z } from "zod";
 import { toast } from "sonner";
 import { Mail, MessageCircle, Phone, MapPin, Send } from "lucide-react";
 import { PageHero, Section } from "@/components/site/Section";
+import { TrustStrip } from "@/components/site/TrustStrip";
+import { FAQ, HOME_FAQS } from "@/components/site/FAQ";
 import { BUSINESS } from "@/lib/business";
+import contactHero from "@/assets/contact-hero.jpg";
+
 
 export const Route = createFileRoute("/contact")({
   component: ContactPage,
@@ -76,9 +80,13 @@ function ContactPage() {
         eyebrow="Contact"
         title="Get your free quote today."
         subtitle="Professional garden maintenance services across Deal, Kent and surrounding areas. We aim to reply the same day."
+        image={contactHero}
       />
 
-      <Section className="!pt-0">
+      <TrustStrip />
+
+      <Section>
+
         <div className="grid lg:grid-cols-5 gap-10">
           <div className="lg:col-span-3 rounded-3xl bg-card border border-border p-7 md:p-10 shadow-soft">
             <h2 className="text-2xl font-display">Send us a message</h2>
@@ -150,9 +158,12 @@ function ContactPage() {
           </aside>
         </div>
       </Section>
+
+      <FAQ items={HOME_FAQS} className="bg-[oklch(0.96_0.005_140)]" />
     </>
   );
 }
+
 
 function Field({
   label, name, type = "text", placeholder, required,

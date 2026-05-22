@@ -2,7 +2,12 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Heart, Leaf, ShieldCheck, Smile, Wrench } from "lucide-react";
 import { PageHero, Section } from "@/components/site/Section";
 import { CTASection } from "@/components/site/CTASection";
-const logo = "/logo/logo.jpg";
+import { StatsSection } from "@/components/site/StatsSection";
+import { GoogleReviewsWidget } from "@/components/site/GoogleReviewsWidget";
+import { FAQ, HOME_FAQS } from "@/components/site/FAQ";
+import { TrustStrip } from "@/components/site/TrustStrip";
+import aboutHero from "@/assets/about-hero.jpg";
+import storyImg from "@/assets/garden-maintenance.jpg";
 
 export const Route = createFileRoute("/about")({
   component: AboutPage,
@@ -16,6 +21,7 @@ export const Route = createFileRoute("/about")({
       },
       { property: "og:title", content: "About — Sutton's Garden Maintenance" },
       { property: "og:url", content: "/about" },
+      { property: "og:image", content: "/projects/p7-final.jpg" },
     ],
     links: [{ rel: "canonical", href: "/about" }],
   }),
@@ -34,22 +40,25 @@ function AboutPage() {
   return (
     <>
       <PageHero
-        eyebrow="About"
+        eyebrow="About Sutton's"
         title="A friendly local gardener with a serious eye for detail."
-        subtitle="Sutton's Garden Maintenance is a Kent-based gardening service built on reliability, craftsmanship and the kind of personal touch you don't get from larger contractors."
+        subtitle="A Kent-based gardening service built on reliability, craftsmanship and the kind of personal touch you don't get from larger contractors."
+        image={aboutHero}
       >
         <Link
           to="/contact"
-          className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground hover:bg-primary/90"
+          className="inline-flex items-center gap-2 rounded-full bg-white text-primary px-6 py-3 text-sm font-semibold hover:bg-white/90"
         >
           Get a Free Quote <ArrowRight className="h-4 w-4" />
         </Link>
       </PageHero>
 
+      <TrustStrip />
+
       <Section>
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          <div className="relative aspect-[4/5] rounded-3xl overflow-hidden bg-muted">
-            <img src={logo} alt="Sutton's Garden Maintenance logo" className="absolute inset-0 h-full w-full object-cover" />
+          <div className="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-elev">
+            <img src={storyImg} alt="Sutton's Garden Maintenance at work in Kent" className="absolute inset-0 h-full w-full object-cover" loading="lazy" />
           </div>
           <div>
             <p className="text-xs font-medium uppercase tracking-[0.22em] text-[oklch(0.5_0.08_145)] mb-3">
@@ -75,9 +84,19 @@ function AboutPage() {
                 — and a finish you can be proud of.
               </p>
             </div>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link to="/services" className="inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-6 py-3 text-sm font-medium hover:bg-primary/90">
+                Our services <ArrowRight className="h-4 w-4" />
+              </Link>
+              <Link to="/projects" className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-6 py-3 text-sm font-medium hover:bg-muted">
+                See our work
+              </Link>
+            </div>
           </div>
         </div>
       </Section>
+
+      <StatsSection />
 
       <Section
         eyebrow="Why choose Sutton's"
@@ -87,7 +106,7 @@ function AboutPage() {
       >
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {values.map(({ icon: Icon, t, d }) => (
-            <div key={t} className="rounded-2xl bg-card border border-border p-7">
+            <div key={t} className="rounded-2xl bg-card border border-border p-7 hover:shadow-elev transition-shadow">
               <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-primary/8 text-primary">
                 <Icon className="h-5 w-5" />
               </span>
@@ -97,6 +116,10 @@ function AboutPage() {
           ))}
         </div>
       </Section>
+
+      <GoogleReviewsWidget />
+
+      <FAQ items={HOME_FAQS} />
 
       <CTASection />
     </>

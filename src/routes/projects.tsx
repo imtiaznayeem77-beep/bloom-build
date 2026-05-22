@@ -5,6 +5,10 @@ import { BeforeAfter } from "@/components/site/BeforeAfter";
 import { CTASection } from "@/components/site/CTASection";
 import { Reveal } from "@/components/site/Reveal";
 import { projects } from "@/lib/projects";
+import { TrustStrip } from "@/components/site/TrustStrip";
+import { GoogleReviewsWidget } from "@/components/site/GoogleReviewsWidget";
+import { StatsSection } from "@/components/site/StatsSection";
+import projectsHero from "@/assets/projects-hero.jpg";
 
 export const Route = createFileRoute("/projects")({
   component: ProjectsPage,
@@ -27,11 +31,14 @@ function ProjectsPage() {
         eyebrow="Projects & Transformations"
         title="Real Kent gardens, brought back to life."
         subtitle="A look at recent transformations and maintenance work across Deal and the surrounding area."
+        image={projectsHero}
       >
-        <Link to="/contact" className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground hover:bg-primary/90">
+        <Link to="/contact" className="inline-flex items-center gap-2 rounded-full bg-white text-primary px-6 py-3 text-sm font-semibold hover:bg-white/90">
           Start your project <ArrowRight className="h-4 w-4" />
         </Link>
       </PageHero>
+
+      <TrustStrip />
 
       <Section>
         <div className="space-y-24">
@@ -44,6 +51,9 @@ function ProjectsPage() {
                   </span>
                   <h2 className="text-2xl md:text-3xl font-display text-balance">{p.title}</h2>
                   <p className="mt-4 text-muted-foreground leading-relaxed">{p.description}</p>
+                  <Link to="/contact" className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline underline-offset-4">
+                    Enquire about similar work <ArrowRight className="h-4 w-4" />
+                  </Link>
                 </div>
                 <div className="lg:col-span-8">
                   {p.before && p.after ? (
@@ -65,6 +75,10 @@ function ProjectsPage() {
           ))}
         </div>
       </Section>
+
+      <StatsSection />
+
+      <GoogleReviewsWidget />
 
       <CTASection />
     </>
