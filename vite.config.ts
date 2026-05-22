@@ -1,11 +1,15 @@
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
+import { nitro } from "nitro/vite";
 
-// Deploy target: Vercel (via Nitro, which TanStack Start uses under the hood).
-// `cloudflare: false` disables the Cloudflare Workers plugin so the build
-// produces a standard Vercel `.vercel/output` directory.
+// Deploy to Vercel via Nitro (TanStack Start full-stack SSR adapter).
+// `cloudflare: false` disables the bundled Cloudflare plugin so Nitro owns the build output.
 export default defineConfig({
   cloudflare: false,
-  tanstackStart: {
-    target: "vercel",
+  vite: {
+    plugins: [
+      nitro({
+        preset: "vercel",
+      }),
+    ],
   },
 });
