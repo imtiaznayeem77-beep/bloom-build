@@ -109,6 +109,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:title", content: SITE_TITLE },
       { name: "twitter:description", content: SITE_DESC },
       { name: "twitter:image", content: "/logo/logo.jpg" },
+      { title: "Sutton’s Garden Maintenance | Professional Garden Services i" },
+      { property: "og:title", content: "Sutton’s Garden Maintenance | Professional Garden Services i" },
+      { name: "twitter:title", content: "Sutton’s Garden Maintenance | Professional Garden Services i" },
+      { name: "description", content: "Friendly, reliable, and professional garden maintenance services across Deal, Kent and surrounding areas. Lawn care, garden transformations, hedge trimming, com" },
+      { property: "og:description", content: "Friendly, reliable, and professional garden maintenance services across Deal, Kent and surrounding areas. Lawn care, garden transformations, hedge trimming, com" },
+      { name: "twitter:description", content: "Friendly, reliable, and professional garden maintenance services across Deal, Kent and surrounding areas. Lawn care, garden transformations, hedge trimming, com" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
